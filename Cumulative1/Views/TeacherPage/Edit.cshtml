@@ -1,0 +1,37 @@
+﻿@model Cumulative1.Models.Teacher
+
+<div class="form-container">
+    <h2>Edit Teacher</h2>
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <form method="post" action="/TeacherPage/Update/@Model.TeacherId">
+        <div class="form-group">
+            <label for="TeacherFname">First Name</label>
+            <input type="text" id="TeacherFname" name="TeacherFName" class="form-control" value="@Model.TeacherFName" />
+            @Html.ValidationMessage("Teacher First Name", "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="TeacherLname">Last Name</label>
+            <input type="text" id="TeacherLname" name="TeacherLName" class="form-control" value="@Model.TeacherLName" />
+            @Html.ValidationMessage("Teacher List Name", "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="EmployeeNumber">Employee Number</label>
+            <input type="text" id="EmployeeNumber" name="EmployeeNumber" class="form-control" value="@Model.EmployeeNumber" />
+        </div>
+        <div class="form-group">
+            <label for="Hire">Hire Date</label>
+            <input type="date" id="Hire" name="Hire" class="form-control" value="@Model.Hire.ToString("yyyy-MM-dd")" />
+            @Html.ValidationMessage("Hire", "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="Salary">Salary</label>
+            <input type="text" id="Salary" name="Salary" class="form-control" value="@Model.Salary" />
+        </div>
+        <div class="actions">
+            <button type="submit" style="background:grey" class="btn">Update Teacher</button>
+            <a href="/TeacherPage/List" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
